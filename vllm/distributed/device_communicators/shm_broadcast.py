@@ -304,6 +304,7 @@ class MessageQueue:
                 assert recv == b"READY"
                 self.local_sync_socket.send(b"READY")
             if self.n_local_reader > 0:
+                time.sleep(1)
                 self.local_socket.send(b"READY")
 
             # remote readers
